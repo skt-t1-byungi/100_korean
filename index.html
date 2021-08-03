@@ -8,11 +8,12 @@
         <script>
             const { max, min } = Math
             const param = location.search.replace(/\D/g, '') || 99
-            const percent = max(min(parseInt(param), 0), 99)
+            const percent = max(min(parseInt(param), 99), 0)
             document.body
                 .appendChild(
                     Object.assign(document.createElement('form'), {
                         method: 'POST',
+                        hidden: true,
                         action: 'https://www.gallup.co.kr/gallupdb/hundred.asp',
                         innerHTML: `<input type="text" name="korean_percent" value="${percent}">
                     `,
